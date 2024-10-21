@@ -1,0 +1,25 @@
+# ignore environment variables
+.env
+.venv/
+
+# ignore video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+
+# ignore data files
+*.csv
+*.json
+*.pickle
+
+# ignore output directories
+/output/
+/data/
+
+# logs
+*.log
+*.out
+*.err
+
