@@ -4,6 +4,16 @@ import csv
 import cv2
 import numpy as np
 
+def set_autopilot_on_route(world, vehicle, route):
+    print("Setting autopilot on fixed route...")
+    for i, waypoint in enumerate(route):
+        print(f"Moving vehicle to waypoint {i}: {waypoint.transform.location}")
+        vehicle.set_transform(waypoint.transform)
+        world.tick()  
+    print("Autopilot on route completed.")
+
+
+
 client = carla.Client('localhost', 2000)
 client.set_timeout(10.0)
 world = client.get_world()
@@ -57,6 +67,7 @@ def get_vehicle_data():
         velocity.x, velocity.y, velocity.z,
         control.throttle, control.brake, control.steer, control.gear
     ]
+
 
 frame_count = 0
 def process_img(image):
